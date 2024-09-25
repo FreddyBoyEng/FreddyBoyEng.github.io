@@ -1,0 +1,111 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.item1 { grid-area: header; }
+.item2 { grid-area: meny; }
+.item3 { grid-area: main; }
+.item4 { grid-area: footer; }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        'header  header  header  header   header'
+        'meny    main    main    main     main'
+        'meny    footer  footer  footer   footer';
+}
+
+#tittel {
+    font-size: 2rem;
+}
+
+.grid-container > div { /* Alle barna til div-containeren av typen div */
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+.item1 { /* header */
+    background: linear-gradient(270deg, #334a94, #050609);
+    color: white;
+    text-align: center;
+
+    /* Bruker flexbox for å plassere bildet/logoen og teksten i midten av headeren */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.item2 { /* menu */
+    background-color:#334a94;
+}
+
+.flyt {
+    float: left;
+}
+
+/* Menyen sitt design */
+nav ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+}
+
+nav ul li a{
+    text-decoration: none;
+    color:white;
+    padding:1.5rem;
+    display: block;
+}
+
+/* Endrar bakgrunnsfargen på menyen når ein tek muspeikar over. */
+nav ul li a:hover{
+    background-color:#3f72d6;
+}
+
+/* For mobil, eller portrerttmodus, med låg oppløysing */
+@media screen and (max-width: 800px) {
+    /* Når skjermstørrelsen blir  */
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+        grid-template-areas:
+            'header'
+            'meny'
+            'main'
+            'footer';
+    }
+
+    /* 
+        Endrer menyen sitt design for mobil.
+        Menyelementene ligg ikkje lenger under kvarandre
+        (frå column til row). I tillegg så midtstiller
+        eg elementa i menyen.
+    */
+    nav ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    /* Når skjermen er liten, så vil biletet i main ta heile bredda. */
+    .flyt {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Skriftstørrelsen i header blir mindre på mobil. */
+    #tittel {
+        font-size: 1rem;
+    }
+}

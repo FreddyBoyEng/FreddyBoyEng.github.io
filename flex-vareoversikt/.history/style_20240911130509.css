@@ -1,0 +1,17 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#boks {
+    border: 2px solid black;
+    width: 400px;
+    height: 400px;
+    padding: 20px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
